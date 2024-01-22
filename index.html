@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome checker</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="./main.js" type="text/javscript"></script>
+  </head>
+  <body>
+    <div class="main-body">
+      <div class="palindrome">
+        <img src="./assets/freecodecamp.png" class="logo" alt="logo" />
+        <h1>Is it a Palindrome?</h1>
+        <div class="check-box">
+          <p>Enter in text to check for a palindrome:</p>
+          <div class="check">
+            <input type="text" id="word" name="word" required />
+            <input
+              type="button"
+              value="check"
+              id="btn"
+              onclick="palindrome()"
+            />
+            <br />
+            <p id="result"></p>
+          </div>
+        </div>
+        <div class="info">
+          <img src="./assets/pngwing.com.png" alt="bulb" />
+          <p>
+            A <span>palindrome</span> is a word or sentence that's spelled the
+            same way both forward and backward, ignoring punctuation, case, and
+            spacing.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function palindrome() {
+        let sentence = document.getElementById("word").value;
+        let len = sentence.length;
+        let flag = 0;
+        for (let i = 0; i < len / 2; i++) {
+          if (sentence[i] != sentence[len - i - 1]) {
+            flag = 1;
+          }
+        }
+        if (flag == 0) {
+          let result = sentence + " is a palindrome:";
+          document.getElementById("result").innerHTML = result;
+        } else {
+          let result = sentence + " is not a  palindrome:";
+          document.getElementById("result").innerHTML = result;
+        }
+      }
+    </script>
+  </body>
+</html>
